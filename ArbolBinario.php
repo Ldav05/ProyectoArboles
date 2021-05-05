@@ -8,10 +8,14 @@
 		private $raiz;
 
 
-		public function __construct($nodo){
-			$this->raiz = $nodo;
+		public function __construct(){
+			$this->raiz = null;
 		}
 
+
+		public function LlenarR($nodo){
+			$this->raiz = $nodo;
+		}
 
 		public function BuscarNodo($nodo,$idNodo){
 			if ($nodo==null) {
@@ -52,9 +56,13 @@
 
 		public function ContarNodos($Nodo){
 			if ($Nodo != null) {
-				if ($Nodo) {
-					# code...
+				if ($Nodo->GetLeft() || $Nodo->GetRight()) {
+					return (1+ $this->ContarNodos($Nodo->Left()) + $this->ContarNodos($Nodo->Right()));
+				}else{
+					return 1;
 				}
+			}else{
+				return 0;
 			}
 		}
 
