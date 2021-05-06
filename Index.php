@@ -34,6 +34,7 @@
             <input type="radio" name="Ubication" value="D"><label for="Right">Derecha</label>
             <input class="item" type="number" name="Son" placeholder="Nombre hijo">
             <input class="Boton" type="submit" name="Crear_Hijo" value="Crear Hijo"><br><br>
+            <input class="Boton" type="submit" name="Contar" value="Contar Nodos"><br><br>
 
         </form>
 
@@ -63,6 +64,12 @@ if (isset($_POST["Dad"]) && isset($_POST["Son"]) && isset($_POST["Ubication"]) !
 	$Son = new Nodo($_POST["Son"]);
 	$msj = $_SESSION["Arbol"]->AgregarNodo($Son, $_POST["Ubication"], $_POST["Dad"]);
 	if($msj != null) echo "<script type='text/javascript'>alert('$msj');</script>";
+}
+
+if (isset($_POST["Contar"]) != null) {
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->ContarNodos($nodo);
+	echo "<script type='text/javascript'>alert('el numero de nodos que hay es de $mj');</script>";
 }
 
 ?>

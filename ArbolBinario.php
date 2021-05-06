@@ -64,7 +64,7 @@
 		public function ContarNodos($Nodo){
 			if ($Nodo != null) {
 				if ($Nodo->GetLeft() || $Nodo->GetRight()) {
-					return (1+ $this->ContarNodos($Nodo->Left()) + $this->ContarNodos($Nodo->Right()));
+					return (1+ $this->ContarNodos($Nodo->GetLeft()) + $this->ContarNodos($Nodo->GetRight()));
 				}else{
 					return 1;
 				}
