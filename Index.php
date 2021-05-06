@@ -10,20 +10,59 @@
 ?>
 
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Proyecto Arbol Binario</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Arbol Binario</title>
 </head>
+
 <body>
 
+    <header>
+        <h1>Arbol Binario</h1>
+        <hr>
 
-	<div>
-		<form action="post">
-			<input type="text" name="Arbol" placeholder="Raiz Arbol">
-			<input type="button" name="Crear_Arbol" value="Crear Arbol">
-		</form>
-	</div>
-	
+    </header>
+    <div>
+        <h3>Crear arbol</h3>
+        <form class="Arbol" action="Index.php" method="post">
+            <input class="item" type="number" name="Raiz" placeholder="Raiz Arbol">
+            <input class="Boton" type="submit" name="Crear_Arbol" value="Crear Arbol"><br><br>
+            <input class="item" type="number" name="Dad" placeholder="Nombre padre">
+            <input type="radio" name="Ubication" value="I"><label for="Left">Izquierda</label>
+            <input type="radio" name="Ubication" value="D"><label for="Right">Derecha</label>
+            <input class="item" type="number" name="Son" placeholder="Nombre hijo">
+            <input class="Boton" type="submit" name="Crear_Hijo" value="Crear Hijo"><br><br>
+
+        </form>
+
+
+
+    </div>
+
+
+
 </body>
+
 </html>
+
+<?php
+
+if (isset($_POST["Raiz"]) && isset($_POST["Crear_Arbol"]) != null) {
+	if (empty($_POST["Raiz"])) {
+		echo "<script type='text/javascript'>alert('Campo vacío');</script>";
+	} else {
+		$Tree = new Nodo($_POST["Raiz"]);
+		$_SESSION["Arbol"]->CrearArbol($Tree);
+		echo "<script type='text/javascript'>alert('Arbol creado correctamente');</script>";
+	}
+}
+
+if (isset($_POST["Dad"]) && isset($_POST["Son"]) && isset($_POST["Ubication"]) != null && isset($_POST["Crear_Hijo"]) != null) {
+	$Son = new Nodo($_POST["Son"]);
+	$msj = $_SESSION["Arbol"]->AgregarNodo($Son, $_POST["Ubication"], $_POST["Dad"]);
+	if($msj != null) echo "<script type='text/javascript'>alert('$msj');</script>";
+}
+
+?>

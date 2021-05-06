@@ -13,8 +13,12 @@
 		}
 
 
-		public function LlenarR($nodo){
+		public function CrearArbol($nodo){
 			$this->raiz = $nodo;
+		}
+
+		public function GetRaiz(){
+			return $this->raiz;
 		}
 
 		public function BuscarNodo($nodo,$idNodo){
@@ -39,14 +43,17 @@
 
 		public function AgregarNodo($nodo,$pos,$nodoP){
 
-			if ($this->BuscarNodo($nodoP,$nodoP->GetId())) {
+			$Dad = $this->BuscarNodo(self::GetRaiz(),$nodoP);
+			if ($Dad != null) {
 				if ($pos=="I") {
-					$nodoP->SetLeft($nodo);
+					$Dad->SetLeft($nodo);
 				}else{
 					if ($pos=="D") {
-						$nodoP->SetRight($nodo);
+						$Dad->SetRight($nodo);
 					}
 				}
+			}else{
+				return "Nodo padre inexistente";
 			}
 
 		}
@@ -63,6 +70,15 @@
 				}
 			}else{
 				return 0;
+			}
+		}
+
+
+		public function RecorridoPreOrden($Nodo){
+			if($Nodo != null){
+				return $Nodo->GetId()." - ";
+				RecorridoPreOrden($Nodo->GetLeft());
+				RecorridoPreOrden($Nodo->GetRight());
 			}
 		}
 
