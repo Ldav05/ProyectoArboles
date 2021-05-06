@@ -10,9 +10,9 @@
 
 
 			public function __construct($i){
-				$this->$Id = $i;
-				$this->$Left = null;
-				$this->$Right = null;
+				$this->Id = $i;
+				$this->Left = null;
+				$this->Right = null;
 			}
 
 			public function GetId(){
