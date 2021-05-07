@@ -14,18 +14,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="Interfaz.css">
     <script type="text/javascript" src="vis/dist/vis.js"></script>
+	
     <title>Proyecto Arbol Binario</title>
 
     <style type="text/css">
+	
         #Arbol {
             width: 400px;
-            height: 345px;
+            height: 390px;
+			left: 600px; top: 130px;
             border: 1px solid lightgray;
             border-radius: 15px;
             margin-left: 100px;
-            position: relative;
+            position: absolute;
             background: #ffffff6c;
+			border-color:  #4caf99;
         }
     </style>
 </head>
@@ -33,21 +38,25 @@
 <body>
 
     <header>
-        <h1>Arbol Binario</h1>
-        <hr>
+        <h1 id="title1"><center>Arbol Binario</center></h1>
+        <hr id="hr1">
+		<hr id="hr2">
 
     </header>
     <div>
-        <h3>Crear arbol</h3>
+	<h3 id="tittle0">Vista Previa</h1>
+        <h3 id="title2">Crear arbol</h3>
         <form class="Arbol" action="Index.php" method="post">
-            <input class="item" type="number" name="Raiz" placeholder="Raiz Arbol">
-            <input class="Boton" type="submit" name="Crear_Arbol" value="Crear Arbol"><br><br>
-            <input class="item" type="number" name="Dad" placeholder="Nombre padre">
-            <input type="radio" name="Ubication" value="I"><label for="Left">Izquierda</label>
-            <input type="radio" name="Ubication" value="D"><label for="Right">Derecha</label>
-            <input class="item" type="number" name="Son" placeholder="Nombre hijo">
-            <input class="Boton" type="submit" name="Crear_Hijo" value="Crear Hijo"><br><br>
-            <input class="Boton" type="submit" name="Contar" value="Contar Nodos"><br><br>
+            <input id="TextRaizArbol" type="number" name="Raiz" placeholder="Raiz Arbol">
+            <input id="BotonCrearArbol" type="submit" name="Crear_Arbol" value="Crear Arbol">
+            <input id="TextNombrePadre" type="number" name="Dad" placeholder="Nombre padre">
+            <input id="Izquierda" type="radio" name="Ubication" value="I"><label id="TextIzquierda" for="Left">Izquierda</label>
+            <input id="Derecha" type="radio" name="Ubication" value="D"><label id="TextDerecha" for="Right">Derecha</label>
+            <input id="TextNombreHijo" type="number" name="Son" placeholder="Nombre hijo">
+            <input id="BotonCrearHijo" type="submit" name="Crear_Hijo" value="Crear Hijo">
+			<input id="TextNombreNodo" type="number" name="Son_Nodo" placeholder="Nombre Nodo">
+			<input id="BotonEliminarNodo" type="submit" name="Eliminar_Nodo" value="Eliminar Nodo">
+            <input id="ContarNodos" type="submit" name="Contar" value="Contar Nodos">
         </form>
     </div>
 
