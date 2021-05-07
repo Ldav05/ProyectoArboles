@@ -23,7 +23,7 @@
 	
         #Arbol {
             width: 400px;
-            height: 390px;
+            height: 460px;
 			left: 600px; top: 130px;
             border: 1px solid lightgray;
             border-radius: 15px;
@@ -57,6 +57,15 @@
 			<input id="TextNombreNodo" type="number" name="Son_Nodo" placeholder="Nombre Nodo">
 			<input id="BotonEliminarNodo" type="submit" name="Eliminar_Nodo" value="Eliminar Nodo">
             <input id="ContarNodos" type="submit" name="Contar" value="Contar Nodos">
+			<input id="ContarNumPares" type="submit" name="ContarPares" value="Contar Nodos Pares">
+			<input id="ArbolCompleto" type="submit" name="ArbolCompleto" value="¿El Arbol Es Completo?">
+			<input id="TextNivel" type="number" name="Nivel" placeholder="Numero Nivel">
+			<input id="RecorridoPorNivel" type="submit" name="RecorridoPorNivel" value="Recorrido Por Nivel">
+			<input id="RecorridoPreorden" type="submit" name="RecorridoPreorden" value="Recorrido Pre-Orden">
+			<input id="RecorridoPosorden" type="submit" name="RecorridoPosorden" value="Recorrido Pos-Orden">
+			<input id="RecorridoEnorden" type="submit" name="RecorridoEnorden" value="Recorrido En-Orden">
+			<input id="VerNodosFlojos" type="submit" name="VerNodosFlojos" value="Ver Nodos Flojos">
+			<input id="Altura" type="submit" name="Altura" value="Calcular Altura">
         </form>
     </div>
 
