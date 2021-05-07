@@ -14,7 +14,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="vis/dist/vis.js"></script>
     <title>Proyecto Arbol Binario</title>
+
+    <style type="text/css">
+        #Arbol {
+            width: 400px;
+            height: 345px;
+            border: 1px solid lightgray;
+            border-radius: 15px;
+            margin-left: 100px;
+            position: relative;
+            background: #ffffff6c;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,14 +48,58 @@
             <input class="item" type="number" name="Son" placeholder="Nombre hijo">
             <input class="Boton" type="submit" name="Crear_Hijo" value="Crear Hijo"><br><br>
             <input class="Boton" type="submit" name="Contar" value="Contar Nodos"><br><br>
-
         </form>
-
-
-
     </div>
 
 
+    <div id="Arbol"></div>
+
+    	
+    	<script type="text/javascript">
+
+
+	    	var nodos = new vis.DataSet([
+	        	<?php
+	        		$_SESSION["Arbol"]->RecorridoPreOrden($_SESSION["Arbol"]->GetRaiz());
+	        	?>
+	        ]);
+
+
+	        var aristas = new vis.DataSet([
+        		<?php
+                
+              		$_SESSION["Arbol"]->MostrarArista($_SESSION["Arbol"]->GetRaiz());
+        		?>
+        	]);
+
+
+		    var contenedor = document.getElementById("Arbol");
+
+		    var opciones = {
+		        edges:{
+		            arrows:{
+		                to:{
+		                    enabled:true
+		                }
+		            }
+		        }/*,
+		        configure:{
+		            enabled:true,
+		            container:undefined,
+		            showButton:true
+		        }*/
+		    };
+
+		    var datos = {
+		        nodes: nodos,
+		        edges: aristas
+		    };
+
+
+		    var grafo = new vis.Network(contenedor,datos,opciones);
+
+
+    	</script>
 
 </body>
 

@@ -76,15 +76,32 @@
 
 		public function RecorridoPreOrden($Nodo){
 			if($Nodo != null){
-				return $Nodo->GetId()." - ";
-				RecorridoPreOrden($Nodo->GetLeft());
-				RecorridoPreOrden($Nodo->GetRight());
+				$msj = $Nodo->GetId();
+		        echo "{id: '$msj' , label: '$msj'},";
+				$this->RecorridoPreOrden($Nodo->GetLeft());
+				$this->RecorridoPreOrden($Nodo->GetRight());
 			}
 		}
 
+		public function MostrarArista($Nodo){
+			if ($Nodo!=null) {
+				$id = $Nodo->GetId();
 
+				if ($Nodo->GetLeft() != null) {
+					$des = $Nodo->GetLeft()->GetId();
+					echo "{from: '$id', to: '$des'},";
+				}
 
-		
+				if ($Nodo->GetRight() != null) {
+					$des = $Nodo->GetRight()->GetId();
+					echo "{from: '$id', to: '$des'},";
+				}
+
+				$this->MostrarArista($Nodo->GetLeft());
+				$this->MostrarArista($Nodo->GetRight());
+
+			}
+		}
 
 	}
 
