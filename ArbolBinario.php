@@ -73,17 +73,39 @@
 			}
 		}
 
+		public function ContarNumerosPares($Nodo){
+			if ($Nodo != null) {
+				if ($Nodo->GetLeft() || $Nodo->GetRight()) {
+					if($Nodo->GetId()%2==0){
+						return (1+$this->ContarNumerosPares($Nodo->GetLeft()) + $this->ContarNumerosPares($Nodo->GetRight()));
+					}elseif($Nodo->GetId()%2!=0){
+						return ($this->ContarNumerosPares($Nodo->GetLeft()) + $this->ContarNumerosPares($Nodo->GetRight()));
+					}
+					
+				}else{
+					if($Nodo->GetId()%2==0){
+						return 1;
+					}elseif($Nodo->GetId()%2!=0){
+						return 0;
+					}
+				}
+			}else{
+				return 0;
+			}
+		}
+	
 
-		public function RecorridoPreOrden($Nodo){
+
+		public function VisualizarNodo($Nodo){
 			if($Nodo != null){
 				$msj = $Nodo->GetId();
 		        echo "{id: '$msj' , label: '$msj'},";
-				$this->RecorridoPreOrden($Nodo->GetLeft());
-				$this->RecorridoPreOrden($Nodo->GetRight());
+				$this->VisualizarNodo($Nodo->GetLeft());
+				$this->VisualizarNodo($Nodo->GetRight());
 			}
 		}
 
-		public function MostrarArista($Nodo){
+		public function VisualizarArista($Nodo){
 			if ($Nodo!=null) {
 				$id = $Nodo->GetId();
 
@@ -97,9 +119,33 @@
 					echo "{from: '$id', to: '$des'},";
 				}
 
-				$this->MostrarArista($Nodo->GetLeft());
-				$this->MostrarArista($Nodo->GetRight());
+				$this->VisualizarArista($Nodo->GetLeft());
+				$this->VisualizarArista($Nodo->GetRight());
 
+			}
+		}
+
+		public function RecorridoPreOrden($Nodo){
+			if($Nodo != null){
+				echo $Nodo->GetId()." ";  
+				$this->RecorridoPreOrden($Nodo->GetLeft());
+				$this->RecorridoPreOrden($Nodo->GetRight());
+			}
+		}
+
+		public function RecorridoInOrden($Nodo){
+			if($Nodo != null){
+				$this->RecorridoInOrden($Nodo->GetLeft());
+				echo $Nodo->GetId()." "; 
+				$this->RecorridoInOrden($Nodo->GetRight());
+			}
+		}
+
+		public function RecorridoPosOrden($Nodo){
+			if($Nodo != null){
+				$this->RecorridoPosOrden($Nodo->GetLeft());
+				$this->RecorridoPosOrden($Nodo->GetRight());
+				echo $Nodo;
 			}
 		}
 

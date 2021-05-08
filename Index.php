@@ -78,7 +78,7 @@
 
 	    	var nodos = new vis.DataSet([
 	        	<?php
-	        		$_SESSION["Arbol"]->RecorridoPreOrden($_SESSION["Arbol"]->GetRaiz());
+	        		$_SESSION["Arbol"]->VisualizarNodo($_SESSION["Arbol"]->GetRaiz());
 	        	?>
 	        ]);
 
@@ -86,7 +86,7 @@
 	        var aristas = new vis.DataSet([
         		<?php
                 
-              		$_SESSION["Arbol"]->MostrarArista($_SESSION["Arbol"]->GetRaiz());
+              		$_SESSION["Arbol"]->VisualizarArista($_SESSION["Arbol"]->GetRaiz());
         		?>
         	]);
 
@@ -144,7 +144,31 @@ if (isset($_POST["Dad"]) && isset($_POST["Son"]) && isset($_POST["Ubication"]) !
 if (isset($_POST["Contar"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->ContarNodos($nodo);
-	echo "<script type='text/javascript'>alert('el numero de nodos que hay es de $mj');</script>";
+	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
 }
 
+if (isset($_POST["ContarPares"]) != null) {
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->ContarNumerosPares($nodo);
+	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
+}
+
+
 ?>
+
+<script type="text/javascript" name="Recorridos">
+var ms = "<?php 
+
+if(isset($_POST["RecorridoPreorden"]) != null){
+	$_SESSION["Arbol"]->RecorridoPreOrden($_SESSION["Arbol"]->GetRaiz());	
+}elseif(isset($_POST["RecorridoEnorden"]) != null ){
+	$_SESSION["Arbol"]->RecorridoInOrden($_SESSION["Arbol"]->GetRaiz());
+}elseif(isset($_POST["RecorridoPosorden"]) != null ){
+	$_SESSION["Arbol"]->RecorridoPosOrden($_SESSION["Arbol"]->GetRaiz());
+}
+
+?>";
+
+if(ms != "") alert(ms);
+
+</script>
