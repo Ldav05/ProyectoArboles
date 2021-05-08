@@ -58,13 +58,13 @@
 			<input id="BotonEliminarNodo" type="submit" name="Eliminar_Nodo" value="Eliminar Nodo">
             <input id="ContarNodos" type="submit" name="Contar" value="Contar Nodos">
 			<input id="ContarNumPares" type="submit" name="ContarPares" value="Contar Nodos Pares">
-			<input id="ArbolCompleto" type="submit" name="ArbolCompleto" value="¿El Arbol Es Completo?">
+			<input id="ArbolCompleto" type="submit" name="ArbolCompleto" value="¿Arbol Completo?">
 			<input id="TextNivel" type="number" name="Nivel" placeholder="Numero Nivel">
 			<input id="RecorridoPorNivel" type="submit" name="RecorridoPorNivel" value="Recorrido Por Nivel">
 			<input id="RecorridoPreorden" type="submit" name="RecorridoPreorden" value="Recorrido Pre-Orden">
 			<input id="RecorridoPosorden" type="submit" name="RecorridoPosorden" value="Recorrido Pos-Orden">
 			<input id="RecorridoEnorden" type="submit" name="RecorridoEnorden" value="Recorrido En-Orden">
-			<input id="VerNodosFlojos" type="submit" name="VerNodosFlojos" value="Ver Nodos Hojas">
+			<input id="VerNodosHojas" type="submit" name="VerNodosHojas" value="Ver Nodos Hojas">
 			<input id="Altura" type="submit" name="Altura" value="Calcular Altura">
         </form>
     </div>
@@ -159,7 +159,7 @@ if (isset($_POST["Altura"]) != null){
 	echo "<script type='text/javascript'>alert('Altura del árbol: $mj');</script>";
 }
 
-if (isset($_POST["VerNodosFlojos"]) != null) {
+if (isset($_POST["VerNodosHojas"]) != null) {
 	$msj = $_SESSION["Arbol"]->NodosHijos($_SESSION["Arbol"]->GetRaiz());
 	echo "<script type='text/javascript'>alert('Los Nodos Hojas Son : $msj');</script>";
 }

@@ -185,6 +185,8 @@ class ArbolB {
 			}
 			$this->NodosHijos($Nodo->GetLeft());
 			$this->NodosHijos($Nodo->GetRight());
+		} else {
+			return 0;
 		}
 	}
 }
