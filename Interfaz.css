@@ -44,10 +44,11 @@
     position: absolute;
     left:257px;
     top: 129px;
+    width: 150px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 39px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -105,10 +106,11 @@
     position: absolute;
     left:540px;
     top: 180px;
+    width: 150px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 32px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -130,10 +132,11 @@
     position: absolute;
     left:255px;
     top: 231px;
+    width: 150px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 32px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -143,10 +146,11 @@
     position: absolute;
     left:95px;
     top: 300px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 42px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -156,10 +160,11 @@
     position: absolute;
     left:95px;
     top: 350px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 24px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -169,10 +174,11 @@
     position: absolute;
     left:325px;
     top: 300px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 16px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -183,7 +189,7 @@
     left:95px;
     top: 400px;
     width: 160px;
-    padding: 9px 25px;
+    padding: 9px 15px;
     margin: 8px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -194,10 +200,11 @@
     position: absolute;
     left:325px;
     top: 405px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 27px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -207,10 +214,11 @@
     position: absolute;
     left:95px;
     top: 460px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 20px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -220,10 +228,11 @@
     position: absolute;
     left:95px;
     top: 510px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 20px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -233,23 +242,25 @@
     position: absolute;
     left:325px;
     top: 350px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 25px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
 }
 
-#VerNodosFlojos{
+#VerNodosHojas{
     position: absolute;
     left:325px;
     top: 460px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 33px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -259,11 +270,13 @@
     position: absolute;
     left:325px;
     top: 510px;
+    width: 155px;
+    height: 36px;
     background-color: #4caf99;
     border: none;
     color: white;
-    padding: 10px 39px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    overflow: hidden;
 }
