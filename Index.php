@@ -64,7 +64,7 @@
 			<input id="RecorridoPreorden" type="submit" name="RecorridoPreorden" value="Recorrido Pre-Orden">
 			<input id="RecorridoPosorden" type="submit" name="RecorridoPosorden" value="Recorrido Pos-Orden">
 			<input id="RecorridoEnorden" type="submit" name="RecorridoEnorden" value="Recorrido En-Orden">
-			<input id="VerNodosFlojos" type="submit" name="VerNodosFlojos" value="Ver Nodos Flojos">
+			<input id="VerNodosFlojos" type="submit" name="VerNodosFlojos" value="Ver Nodos Hojas">
 			<input id="Altura" type="submit" name="Altura" value="Calcular Altura">
         </form>
     </div>
@@ -153,6 +153,12 @@ if (isset($_POST["ContarPares"]) != null) {
 	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
 }
 
+if (isset($_POST["Altura"]) != null){
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->Altura($nodo);
+	echo "<script type='text/javascript'>alert('Altura del árbol: $mj');</script>";
+}
+
 
 ?>
 
@@ -165,6 +171,10 @@ if(isset($_POST["RecorridoPreorden"]) != null){
 	$_SESSION["Arbol"]->RecorridoInOrden($_SESSION["Arbol"]->GetRaiz());
 }elseif(isset($_POST["RecorridoPosorden"]) != null ){
 	$_SESSION["Arbol"]->RecorridoPosOrden($_SESSION["Arbol"]->GetRaiz());
+}elseif(isset($_POST["RecorridoPorNivel"]) != null && isset($_POST["Nivel"])){
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->RecorridoPorNivel($_POST["Nivel"], $nodo);
+	echo " (N° nodos: ".$mj.")";
 }
 
 ?>";
