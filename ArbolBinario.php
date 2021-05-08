@@ -175,6 +175,18 @@ class ArbolB {
 		}
 
 	}
+
+	public function NodosHijos($Nodo){
+		$cont = null;
+		if ($Nodo != null) {
+			if (($Nodo->GetLeft() == null ) && ($Nodo->GetRight() == null) && $Nodo != $this->GetRaiz()) {
+				$id = $Nodo->GetId();
+				echo $cont = "->".$id.$cont;
+			}
+			$this->NodosHijos($Nodo->GetLeft());
+			$this->NodosHijos($Nodo->GetRight());
+		}
+	}
 }
 
 ?>

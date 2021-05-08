@@ -159,6 +159,11 @@ if (isset($_POST["Altura"]) != null){
 	echo "<script type='text/javascript'>alert('Altura del árbol: $mj');</script>";
 }
 
+if (isset($_POST["VerNodosFlojos"]) != null) {
+	$msj = $_SESSION["Arbol"]->NodosHijos($_SESSION["Arbol"]->GetRaiz());
+	echo "<script type='text/javascript'>alert('Los Nodos Hojas Son : $msj');</script>";
+}
+
 
 ?>
 
