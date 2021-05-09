@@ -72,6 +72,46 @@
 
     <div id="Arbol"></div>
 
+	<?php
+
+if (isset($_POST["Raiz"]) && isset($_POST["Crear_Arbol"]) != null) {
+	if (empty($_POST["Raiz"])) {
+		echo "<script type='text/javascript'>alert('Campo vacío');</script>";
+	} else {
+		$Tree = new Nodo($_POST["Raiz"]);
+		$_SESSION["Arbol"]->CrearArbol($Tree);
+	}
+}
+
+if (isset($_POST["Dad"]) && isset($_POST["Son"]) && isset($_POST["Ubication"]) != null && isset($_POST["Crear_Hijo"]) != null) {
+	$Son = new Nodo($_POST["Son"]);
+	$msj = $_SESSION["Arbol"]->AgregarNodo($Son, $_POST["Ubication"], $_POST["Dad"]);
+	if($msj != null) echo "<script type='text/javascript'>alert('$msj');</script>";
+}
+
+if (isset($_POST["Contar"]) != null) {
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->ContarNodos($nodo);
+	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
+}
+
+if (isset($_POST["ContarPares"]) != null) {
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->ContarNumerosPares($nodo);
+	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
+}
+
+if (isset($_POST["Altura"]) != null){
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->Altura($nodo);
+	echo "<script type='text/javascript'>alert('Altura del árbol: $mj');</script>";
+}
+
+
+
+
+?>
+
     	
     	<script type="text/javascript">
 
@@ -123,49 +163,8 @@
 
 </html>
 
-<?php
-
-if (isset($_POST["Raiz"]) && isset($_POST["Crear_Arbol"]) != null) {
-	if (empty($_POST["Raiz"])) {
-		echo "<script type='text/javascript'>alert('Campo vacío');</script>";
-	} else {
-		$Tree = new Nodo($_POST["Raiz"]);
-		$_SESSION["Arbol"]->CrearArbol($Tree);
-		echo "<script type='text/javascript'>alert('Arbol creado correctamente');</script>";
-	}
-}
-
-if (isset($_POST["Dad"]) && isset($_POST["Son"]) && isset($_POST["Ubication"]) != null && isset($_POST["Crear_Hijo"]) != null) {
-	$Son = new Nodo($_POST["Son"]);
-	$msj = $_SESSION["Arbol"]->AgregarNodo($Son, $_POST["Ubication"], $_POST["Dad"]);
-	if($msj != null) echo "<script type='text/javascript'>alert('$msj');</script>";
-}
-
-if (isset($_POST["Contar"]) != null) {
-	$nodo = $_SESSION["Arbol"]->GetRaiz();
-	$mj = $_SESSION["Arbol"]->ContarNodos($nodo);
-	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
-}
-
-if (isset($_POST["ContarPares"]) != null) {
-	$nodo = $_SESSION["Arbol"]->GetRaiz();
-	$mj = $_SESSION["Arbol"]->ContarNumerosPares($nodo);
-	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
-}
-
-if (isset($_POST["Altura"]) != null){
-	$nodo = $_SESSION["Arbol"]->GetRaiz();
-	$mj = $_SESSION["Arbol"]->Altura($nodo);
-	echo "<script type='text/javascript'>alert('Altura del árbol: $mj');</script>";
-}
-
-if (isset($_POST["VerNodosHojas"]) != null) {
-	$msj = $_SESSION["Arbol"]->NodosHijos($_SESSION["Arbol"]->GetRaiz());
-	echo "<script type='text/javascript'>alert('Los Nodos Hojas Son : $msj');</script>";
-}
 
 
-?>
 
 <script type="text/javascript" name="Recorridos">
 var ms = "<?php 
@@ -180,10 +179,25 @@ if(isset($_POST["RecorridoPreorden"]) != null){
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->RecorridoPorNivel($_POST["Nivel"], $nodo);
 	echo " (N° nodos: ".$mj.")";
+}elseif (isset($_POST["VerNodosHojas"]) != null) {
+	$msj = $_SESSION["Arbol"]->NodosHijos($_SESSION["Arbol"]->GetRaiz());
+	echo $msj;
 }
 
 ?>";
-
 if(ms != "") alert(ms);
+</script>
+
+<script type="text/javascript" name="ArbolCompleto">
+var msj = <?php 
+if (isset($_POST["ArbolCompleto"]) != null){
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$_SESSION["Arbol"]->ArbolCompleto($nodo);
+	
+}
+?>;
+if(msj == 0) msj = "Árbol completo";
+if(msj > 0) msj = "Árbol incompleto, faltan "+msj+" nodos";
+ if (msj != null) alert(msj);
 
 </script>

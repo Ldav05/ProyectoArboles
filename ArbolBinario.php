@@ -189,6 +189,30 @@ class ArbolB {
 			return 0;
 		}
 	}
+   
+	public function ArbolCompleto($Nodo){
+		if($Nodo != null){
+		   if($Nodo->GetLeft() || $Nodo->GetRight()){
+			   if (($Nodo->GetLeft() == null ) xor ($Nodo->GetRight() == null)){
+				   echo "1+";
+			   }
+			   $this->ArbolCompleto($Nodo->GetLeft());
+			   $this->ArbolCompleto($Nodo->GetRight());
+			   
+		   }else{
+			   echo "0";
+			   return false;
+		   }
+		}else{
+			return false;
+		}
+			
+   
+
+   }
+
+   
 }
+	
 
 ?>
