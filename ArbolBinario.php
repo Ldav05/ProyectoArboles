@@ -216,7 +216,7 @@ class ArbolB {
 	public function NodosHijos($Nodo){
 		$cont = null;
 		if ($Nodo != null) {
-			if (($Nodo->GetLeft() == null ) && ($Nodo->GetRight() == null) && $Nodo != $this->GetRaiz()) {
+			if (($Nodo->GetLeft() == null ) && ($Nodo->GetRight() == null)) {
 				$id = $Nodo->GetId();
 				echo $cont = "->".$id.$cont;
 			}

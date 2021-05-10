@@ -103,6 +103,15 @@ if (isset($_POST["ContarPares"]) != null) {
 	echo "<script type='text/javascript'>alert('Numero de nodos pares: $mj');</script>";
 }
 
+if (isset($_POST["Altura"]) != null) {
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->Altura($nodo);
+	echo "<script type='text/javascript'>alert('Altura: $mj');</script>";
+}
+
+/*if(isset($_POST["EliminarNodo"]) != null && isset($_POST["SonNodo"])){
+	echo '<META HTTP-EQUIV="REFRESH" CONTENT="1;URL=Index.php"> </head>';
+}*/
 
 
 ?>
@@ -142,20 +151,21 @@ if(isset($_POST["EliminarNodo"]) != null && isset($_POST["SonNodo"])){
 
 		    var contenedor = document.getElementById("Arbol");
 
-		    var opciones = {
-		        edges:{
-		            arrows:{
-		                to:{
-		                    enabled:true
-		                }
-		            }
-		        }/*,
-		        configure:{
-		            enabled:true,
-		            container:undefined,
-		            showButton:true
-		        }*/
-		    };
+			var opciones = {
+					layout: {
+						hierarchical: {
+							direction: "UD",
+							sortMethod: "directed",
+						},
+					},
+					nodes: {
+          
+         		 borderWidth: 0		
+        },
+					edges: {
+						arrows: "to"
+					},
+				};
 
 		    var datos = {
 		        nodes: nodos,
