@@ -54,6 +54,43 @@ class ArbolB {
 
 	}
 
+	public function EliminarNodo($nodo, $idNodo){
+		if ($nodo != null) {
+				if($nodo->GetId() == $idNodo){
+					return "false";
+				}else{
+					if($nodo->GetRight() != null) if (($nodo->GetRight())->GetId() == $idNodo && ($nodo->GetRight()->GetRight() == null && $nodo->GetRight()->GetLeft() == null)) {
+						if($nodo->GetRight()->GetRight() != null && $nodo->GetRight()->GetLeft() != null){
+							return "false";
+						}else{
+							return $nodo->SetRight(null);
+						}
+					}
+					if(($nodo->GetLeft())->GetId() == $idNodo && ($nodo->GetLeft()->GetRight() == null && $nodo->GetLeft()->GetLeft() == null)){
+						if($nodo->GetLeft() != null) if($nodo->GetLeft()->GetRight() != null && $nodo->GetLeft()->GetLeft() != null){
+							return "false";
+						}else{
+							return $nodo->SetLeft(null);
+						}
+					}
+			
+					$right = $this->EliminarNodo($nodo->GetRight(), $idNodo);
+					$left = $this->EliminarNodo($nodo->GetLeft(), $idNodo);
+	
+					if ($right != "false") {
+						return $right;
+					} else {
+						return $left;
+					}		
+				}				
+			} else {
+			return "false";
+			
+			}
+		}
+	
+	
+
 	public function ContarNodos($Nodo) {
 		if ($Nodo != null) {
 			if ($Nodo->GetLeft() || $Nodo->GetRight()) {

@@ -54,8 +54,8 @@
             <input id="Derecha" type="radio" name="Ubication" value="D"><label id="TextDerecha" for="Right">Derecha</label>
             <input id="TextNombreHijo" type="number" name="Son" placeholder="Nombre hijo">
             <input id="BotonCrearHijo" type="submit" name="Crear_Hijo" value="Crear Hijo">
-			<input id="TextNombreNodo" type="number" name="Son_Nodo" placeholder="Nombre Nodo">
-			<input id="BotonEliminarNodo" type="submit" name="Eliminar_Nodo" value="Eliminar Nodo">
+			<input id="TextNombreNodo" type="number" name="SonNodo" placeholder="Nombre Nodo">
+			<input id="BotonEliminarNodo" type="submit" name="EliminarNodo" value="Eliminar Nodo">
             <input id="ContarNodos" type="submit" name="Contar" value="Contar Nodos">
 			<input id="ContarNumPares" type="submit" name="ContarPares" value="Contar Nodos Pares">
 			<input id="ArbolCompleto" type="submit" name="ArbolCompleto" value="¿Arbol Completo?">
@@ -89,6 +89,8 @@ if (isset($_POST["Dad"]) && isset($_POST["Son"]) && isset($_POST["Ubication"]) !
 	if($msj != null) echo "<script type='text/javascript'>alert('$msj');</script>";
 }
 
+
+
 if (isset($_POST["Contar"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->ContarNodos($nodo);
@@ -98,19 +100,26 @@ if (isset($_POST["Contar"]) != null) {
 if (isset($_POST["ContarPares"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->ContarNumerosPares($nodo);
-	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
+	echo "<script type='text/javascript'>alert('Numero de nodos pares: $mj');</script>";
 }
-
-if (isset($_POST["Altura"]) != null){
-	$nodo = $_SESSION["Arbol"]->GetRaiz();
-	$mj = $_SESSION["Arbol"]->Altura($nodo);
-	echo "<script type='text/javascript'>alert('Altura del árbol: $mj');</script>";
-}
-
 
 
 
 ?>
+<script type="text/javascript" name="EliminarNodo">
+var msj = "<?php 
+if(isset($_POST["EliminarNodo"]) != null && isset($_POST["SonNodo"])){
+	$nodo = $_SESSION["Arbol"]->GetRaiz();
+	$mj = $_SESSION["Arbol"]->EliminarNodo($nodo,$_POST["SonNodo"] );
+	echo $mj;
+}
+?>";
+
+ if (msj == "false"){ 
+	 alert("Sólo se pueden eliminar nodos hojas");
+	}
+
+</script>
 
     	
     	<script type="text/javascript">
@@ -185,7 +194,10 @@ if(isset($_POST["RecorridoPreorden"]) != null){
 }
 
 ?>";
-if(ms != "") alert(ms);
+if(ms != ""){
+	alert(ms);
+}
+
 </script>
 
 <script type="text/javascript" name="ArbolCompleto">
@@ -201,3 +213,6 @@ if(msj > 0) msj = "Árbol incompleto, faltan "+msj+" nodos";
  if (msj != null) alert(msj);
 
 </script>
+
+
+
