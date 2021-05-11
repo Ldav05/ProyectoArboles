@@ -109,10 +109,6 @@ if (isset($_POST["Altura"]) != null) {
 	echo "<script type='text/javascript'>alert('Altura: $mj');</script>";
 }
 
-/*if(isset($_POST["EliminarNodo"]) != null && isset($_POST["SonNodo"])){
-	echo '<META HTTP-EQUIV="REFRESH" CONTENT="1;URL=Index.php"> </head>';
-}*/
-
 
 ?>
 <script type="text/javascript" name="EliminarNodo">

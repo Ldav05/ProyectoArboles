@@ -66,8 +66,8 @@ class ArbolB {
 							return $nodo->SetRight(null);
 						}
 					}
-					if(($nodo->GetLeft())->GetId() == $idNodo && ($nodo->GetLeft()->GetRight() == null && $nodo->GetLeft()->GetLeft() == null)){
-						if($nodo->GetLeft() != null) if($nodo->GetLeft()->GetRight() != null && $nodo->GetLeft()->GetLeft() != null){
+					if($nodo->GetLeft() != null) if(($nodo->GetLeft())->GetId() == $idNodo && ($nodo->GetLeft()->GetRight() == null && $nodo->GetLeft()->GetLeft() == null)){
+						if($nodo->GetLeft()->GetRight() != null && $nodo->GetLeft()->GetLeft() != null){
 							return "false";
 						}else{
 							return $nodo->SetLeft(null);
@@ -127,7 +127,13 @@ class ArbolB {
 	public function VisualizarNodo($Nodo) {
 		if ($Nodo != null) {
 			$msj = $Nodo->GetId();
-			echo "{id: '$msj' , label: '$msj'},";
+			if($msj == self::GetRaiz()->GetId()){
+				echo "{id: '$msj' , label: '$msj', shape: 'circularImage', image:'seed.jpg'},";
+			}elseif($Nodo->GetLeft() ==null && $Nodo->GetRight()==null){
+				echo "{id: '$msj' , label: '$msj', shape: 'circularImage', image:'hoja.jpg'},";
+			}else{
+				echo "{id: '$msj' , label: '$msj', shape: 'circularImage', image:'fruit.jpg'},";
+			}	
 			$this->VisualizarNodo($Nodo->GetLeft());
 			$this->VisualizarNodo($Nodo->GetRight());
 		}
@@ -139,12 +145,12 @@ class ArbolB {
 
 			if ($Nodo->GetLeft() != null) {
 				$des = $Nodo->GetLeft()->GetId();
-				echo "{from: '$id', to: '$des'},";
+				echo "{from: '$id', to: '$des', color:{color:'brown'}},";
 			}
 
 			if ($Nodo->GetRight() != null) {
 				$des = $Nodo->GetRight()->GetId();
-				echo "{from: '$id', to: '$des'},";
+				echo "{from: '$id', to: '$des', color:{color:'brown'}},";
 			}
 
 			$this->VisualizarArista($Nodo->GetLeft());
