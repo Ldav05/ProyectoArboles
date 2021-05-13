@@ -47,26 +47,36 @@
 	<h3 id="tittle0">Vista Previa</h1>
         <h3 id="title2">Crear arbol</h3>
         <form class="Arbol" action="Index.php" method="post">
-            <input id="TextRaizArbol" type="number" name="Raiz" placeholder="Raiz Arbol">
+            <input id="TextRaizArbol" type="number" name="Raiz" placeholder="Raiz Arbol" required>
             <input id="BotonCrearArbol" type="submit" name="Crear_Arbol" value="Crear Arbol">
-            <input id="TextNombrePadre" type="number" name="Dad" placeholder="Nombre padre">
-            <input id="Izquierda" type="radio" name="Ubication" value="I"><label id="TextIzquierda" for="Left">Izquierda</label>
-            <input id="Derecha" type="radio" name="Ubication" value="D"><label id="TextDerecha" for="Right">Derecha</label>
-            <input id="TextNombreHijo" type="number" name="Son" placeholder="Nombre hijo">
+		</form>
+		<form class="Hijo" action="Index.php" method="post">
+            <input id="TextNombrePadre" type="number" name="Dad" placeholder="Nombre padre" required>
+            <input id="Izquierda" type="radio" name="Ubication" value="I" required><label id="TextIzquierda" for="Left">Izquierda</label>
+            <input id="Derecha" type="radio" name="Ubication" value="D" required><label id="TextDerecha" for="Right">Derecha</label>
+            <input id="TextNombreHijo" type="number" name="Son" placeholder="Nombre hijo" required>
             <input id="BotonCrearHijo" type="submit" name="Crear_Hijo" value="Crear Hijo">
-			<input id="TextNombreNodo" type="number" name="SonNodo" placeholder="Nombre Nodo">
+		</form>
+		<form class="Eliminar" action="Index.php" method="post">
+			<input id="TextNombreNodo" type="number" name="SonNodo" placeholder="Nombre Nodo"required>
 			<input id="BotonEliminarNodo" type="submit" name="EliminarNodo" value="Eliminar Nodo">
+		</form>	
+		<form class="Arbol1" action="Index.php" method="post">
             <input id="ContarNodos" type="submit" name="Contar" value="Contar Nodos">
 			<input id="ContarNumPares" type="submit" name="ContarPares" value="Contar Nodos Pares">
 			<input id="ArbolCompleto" type="submit" name="ArbolCompleto" value="¿Arbol Completo?">
-			<input id="TextNivel" type="number" name="Nivel" placeholder="Numero Nivel">
-			<input id="RecorridoPorNivel" type="submit" name="RecorridoPorNivel" value="Recorrido Por Nivel">
 			<input id="RecorridoPreorden" type="submit" name="RecorridoPreorden" value="Recorrido Pre-Orden">
 			<input id="RecorridoPosorden" type="submit" name="RecorridoPosorden" value="Recorrido Pos-Orden">
 			<input id="RecorridoEnorden" type="submit" name="RecorridoEnorden" value="Recorrido En-Orden">
 			<input id="VerNodosHojas" type="submit" name="VerNodosHojas" value="Ver Nodos Hojas">
 			<input id="Altura" type="submit" name="Altura" value="Calcular Altura">
-        </form>
+		</form>
+		<form class="Nivel" action="Index.php" method="post">
+			<input id="TextNivel" type="number" name="Nivel" placeholder="Numero Nivel" required>
+			<input id="RecorridoPorNivel" type="submit" name="RecorridoPorNivel" value="Recorrido Por Nivel">
+		</form>
+			
+    
     </div>
 
 
@@ -94,19 +104,22 @@ if (isset($_POST["Dad"]) && isset($_POST["Son"]) && isset($_POST["Ubication"]) !
 if (isset($_POST["Contar"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->ContarNodos($nodo);
-	echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
+	if ($mj >= 0 && $mj != "False" )echo "<script type='text/javascript'>alert('Numero de nodos: $mj');</script>";
+	if($mj == "False" ) echo "<script type='text/javascript'>alert('Debe primero crear un árbol');</script>";
 }
 
 if (isset($_POST["ContarPares"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->ContarNumerosPares($nodo);
-	echo "<script type='text/javascript'>alert('Numero de nodos pares: $mj');</script>";
+	if ($mj >= 0 && $mj != "False" )echo "<script type='text/javascript'>alert('Numero de nodos pares: $mj');</script>";
+	if($mj == "False" ) echo "<script type='text/javascript'>alert('Debe primero crear un árbol');</script>";
 }
 
 if (isset($_POST["Altura"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->Altura($nodo);
-	echo "<script type='text/javascript'>alert('Altura: $mj');</script>";
+	if ($mj >= 0 && $mj != "False" ) echo "<script type='text/javascript'>alert('Altura: $mj');</script>";
+	if($mj == "False" ) echo "<script type='text/javascript'>alert('Debe primero crear un árbol');</script>";
 }
 
 
@@ -200,8 +213,11 @@ if(isset($_POST["RecorridoPreorden"]) != null){
 }
 
 ?>";
-if(ms != ""){
+if(ms != "" && ms != "False"){
 	alert(ms);
+}
+if(ms == "False"){
+	alert("Debe primero crear un árbol");
 }
 
 </script>
@@ -216,7 +232,8 @@ if (isset($_POST["ArbolCompleto"]) != null){
 ?>;
 if(msj == 0) msj = "Árbol completo";
 if(msj > 0) msj = "Árbol incompleto, faltan "+msj+" nodos";
- if (msj != null) alert(msj);
+if(msj == "False") msj = "Debe primero crear un árbol";
+if (msj != null) alert(msj);
 
 </script>
 
