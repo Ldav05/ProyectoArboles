@@ -111,14 +111,14 @@ if (isset($_POST["Contar"]) != null) {
 if (isset($_POST["ContarPares"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->ContarNumerosPares($nodo);
-	if ($mj >= 0 && $mj != "False" )echo "<script type='text/javascript'>alert('Numero de nodos pares: $mj');</script>";
-	if($mj == "False" ) echo "<script type='text/javascript'>alert('Debe primero crear un árbol');</script>";
+	if ($mj >= 0 || $nodo->GetId()%2!=0&& $mj != "False" )echo "<script type='text/javascript'>alert('Numero de nodos pares: $mj');</script>";
+	if($mj == "False"  && $mj != 0) echo "<script type='text/javascript'>alert('Debe primero crear un árbol');</script>";
 }
 
 if (isset($_POST["Altura"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->Altura($nodo);
-	if ($mj >= 0 && $mj != "False" ) echo "<script type='text/javascript'>alert('Altura: $mj');</script>";
+	if ($mj >= 0&& $mj != "False" ) echo "<script type='text/javascript'>alert('Altura: $mj');</script>";
 	if($mj == "False" ) echo "<script type='text/javascript'>alert('Debe primero crear un árbol');</script>";
 }
 
@@ -134,7 +134,7 @@ if(isset($_POST["EliminarNodo"]) != null && isset($_POST["SonNodo"])){
 ?>";
 
  if (msj == "false"){ 
-	 alert("Sólo se pueden eliminar nodos hojas");
+	 alert("El nodo no puede eliminarse (no es un nodo hoja o no existe)");
 	}
 
 </script>
