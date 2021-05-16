@@ -111,8 +111,8 @@ if (isset($_POST["Contar"]) != null) {
 if (isset($_POST["ContarPares"]) != null) {
 	$nodo = $_SESSION["Arbol"]->GetRaiz();
 	$mj = $_SESSION["Arbol"]->ContarNumerosPares($nodo);
-	if ($mj >= 0 || $nodo->GetId()%2!=0&& $mj != "False" )echo "<script type='text/javascript'>alert('Numero de nodos pares: $mj');</script>";
-	if($mj == "False"  && $mj != 0) echo "<script type='text/javascript'>alert('Debe primero crear un árbol');</script>";
+	if (($mj >= 0 || $nodo->GetId()%2!=0)&& $mj != False )echo "<script type='text/javascript'>alert('Numero de nodos pares: $mj');</script>";
+	if($mj == False) echo "<script type='text/javascript'>alert('Debe primero crear un árbol');</script>";
 }
 
 if (isset($_POST["Altura"]) != null) {
@@ -230,10 +230,10 @@ if (isset($_POST["ArbolCompleto"]) != null){
 	
 }
 ?>;
-if(msj == 0) msj = "Árbol completo";
-if(msj > 0) msj = "Árbol incompleto, faltan "+msj+" nodos";
-if(msj == "False") msj = "Debe primero crear un árbol";
-if (msj != null) alert(msj);
+if(msj == 0) msj = alert("Árbol completo");
+if(msj > 0) msj = alert("Árbol incompleto, faltan "+msj+" nodos");
+if(msj == "false") alert("Debe primero crear un árbol") ;
+
 
 </script>
 
