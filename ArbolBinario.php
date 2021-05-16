@@ -150,7 +150,7 @@ class ArbolB {
 				return 0;
 			}
 		}else{
-			return "False";
+			return False;
 		}
 	}
 
@@ -224,7 +224,6 @@ class ArbolB {
 	}
 
 	public function RecorridoPorNivel($nivel, $Nodo, $count = 1) {
-		if(self::GetRaiz() != null){
 			if ($Nodo != null) {
 				if ($Nodo->GetLeft() || $Nodo->GetRight()) {
 					if ($count == $nivel) {
@@ -246,9 +245,7 @@ class ArbolB {
 			} else {
 				return 0;
 			}
-		}else{
-			return "False";
-		}
+		
 	}
 
 	public function Altura($Nodo, $Count = 0) {
@@ -286,7 +283,6 @@ class ArbolB {
 	}
    
 	public function ArbolCompleto($Nodo){
-		if(self::GetRaiz() != null){
 			if($Nodo != null){
 				if($Nodo->GetLeft() || $Nodo->GetRight()){
 					if (($Nodo->GetLeft() == null ) xor ($Nodo->GetRight() == null)){
@@ -300,11 +296,10 @@ class ArbolB {
 					return false;
 				}
 			 }else{
+				if(self::GetRaiz() == null) echo '"false"';
 				 return false;
 			 }
-		}else{
-			return "'False'";
-		}
+		
    }
 
    
