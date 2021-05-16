@@ -1,0 +1,282 @@
+#tittle0{
+    font-size: 20px;
+    position:absolute;
+    left: 850px;
+    top: 79px;
+}
+
+#title1{
+    font-size: 34px;
+}
+
+#title2{
+    font-size: 22px;
+    position:absolute;
+    left: 95px;
+    top:75px;
+}
+
+#hr1{
+    width:99%;
+    position: absolute;
+    top:60px;
+}
+
+#hr2{
+    width:50%;
+    position: absolute;
+    top:280px;
+}
+
+#TextRaizArbol{
+    position:absolute;
+    left:95px;
+    top: 125px;
+    width: 150px;
+    padding: 9px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#BotonCrearArbol{
+    position: absolute;
+    left:257px;
+    top: 129px;
+    width: 150px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#TextNombrePadre{
+    position:absolute;
+    left:95px;
+    top: 176px;
+    width: 150px;
+    padding: 9px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#Izquierda{
+    position: absolute;
+    left: 258px;
+    top: 183px;
+    cursor: pointer;
+}
+#TextIzquierda{   
+    position: absolute;
+    left: 282px;
+    top: 183px;
+}
+
+#Derecha{
+    position: absolute;
+    left: 258px;
+    top: 203px;
+    cursor: pointer;
+}
+#TextDerecha{   
+    position: absolute;
+    left: 282;
+    top: 203;
+}
+
+#TextNombreHijo{
+    position:absolute;
+    left:380px;
+    top: 176px;
+    width: 150px;
+    padding: 9px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#BotonCrearHijo{
+    position: absolute;
+    left:540px;
+    top: 180px;
+    width: 150px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#TextNombreNodo{
+    position:absolute;
+    left:95px;
+    top: 227px;
+    width: 150px;
+    padding: 9px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#BotonEliminarNodo{
+    position: absolute;
+    left:255px;
+    top: 231px;
+    width: 150px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#ContarNodos{
+    position: absolute;
+    left:95px;
+    top: 300px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#ContarNumPares{
+    position: absolute;
+    left:95px;
+    top: 350px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#ArbolCompleto{
+    position: absolute;
+    left:325px;
+    top: 300px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#TextNivel{
+    position:absolute;
+    left:95px;
+    top: 400px;
+    width: 160px;
+    padding: 9px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#RecorridoPorNivel{
+    position: absolute;
+    left:325px;
+    top: 405px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#RecorridoPreorden{
+    position: absolute;
+    left:95px;
+    top: 460px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#RecorridoPosorden{
+    position: absolute;
+    left:95px;
+    top: 510px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#RecorridoEnorden{
+    position: absolute;
+    left:325px;
+    top: 350px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#VerNodosHojas{
+    position: absolute;
+    left:325px;
+    top: 460px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#Altura{
+    position: absolute;
+    left:325px;
+    top: 510px;
+    width: 155px;
+    height: 36px;
+    background-color: #4caf99;
+    border: none;
+    color: white;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    overflow: hidden;
+}
