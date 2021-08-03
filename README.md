@@ -1,22 +1,21 @@
-# Proyecto Árboles binarios
-Proyecto de estructura de datos, semestre 4, corte 3
+# Binary Trees Project
 
 
 
-## Funcionalidades 📋
+## Functions 📋
 
-* Crear Arbol
-* Agregar Nodo
-* Eliminar Nodo
-* Contar Nodos
-* Contar Numeros Pares
-* Recorrido Niveles
-* Recorrido PreOrden, Recorrido InOrden, Recorrido PosOrden
-* Arbol Completo
-* Calcular Altura
-* Nodos Hijos
+* Create tree
+* Add node  
+* Delete node
+* Count nodes
+* Count even numbers
+* Levels tour
+* PreOrder, InOrder and PostOrder Traversal
+* Complete tree
+* calculate height
+* Child nodes
 
-## Construido con 🛠️ 
+## Created with 🛠️ 
 
 * PHP
 * JavaScript
@@ -26,6 +25,6 @@ Proyecto de estructura de datos, semestre 4, corte 3
 
 ## Autores ✒️
 
-* **Luis David Gordon Rodríguez** - *Desarrollador* - [Ldav05](https://github.com/Ldav05)
-* **Luis Antonio Pico León** - *Desarrollador* - [pico164](https://github.com/pico164)
-* **Kenneth Jesús Mendoza Meriño** - *Desarrollador* - [Kenth12](https://github.com/Kenth12)
+* **Luis David Gordon Rodríguez** - *Developer* - [Ldav05](https://github.com/Ldav05)
+* **Luis Antonio Pico León** - *Developerr* - [pico164](https://github.com/pico164)
+* **Kenneth Jesús Mendoza Meriño** - *Developer* - [Kenth12](https://github.com/Kenth12)
